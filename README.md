@@ -1,2 +1,2 @@
 # maven-project
-Project source code for https://www.udemy.com/the-complete-jenkins-course-for-developers-and-devops
+We are trying to auto trigger a jenkins build
