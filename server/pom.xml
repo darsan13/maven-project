@@ -6,14 +6,14 @@
   <parent>
     <groupId>com.example.maven-project</groupId>
     <artifactId>maven-project</artifactId>
-    <version>${buildNumber}-SNAPSHOT</version>
+    <version>1.${buildNumber}-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
   <artifactId>server</artifactId>
   <packaging>jar</packaging>
   <name>Server</name>
-  <version>${buildNumber}-SNAPSHOT</version>
+  <version>1.${buildNumber}-SNAPSHOT</version>
   <description>Logic.</description>
 
   <build>
