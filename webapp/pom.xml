@@ -10,13 +10,13 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>webapp-1.${buildNumber}</artifactId>
+  <artifactId>webapp</artifactId>
   <packaging>war</packaging>
   <name>Webapp</name>
   <description>Webapp.</description>
 
   <build>
-    <finalName>${project.artifactId}</finalName>
+    <finalName>${project.artifactId}-1.${buildNumber}-SNAPSHOT</finalName>
 
     <plugins>
       <plugin>
