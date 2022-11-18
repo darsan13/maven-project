@@ -14,3 +14,4 @@ another autobuild on Sai's jenkins server
 this change will build the webapp project and deploy in tomcat!
 email notification testing
 email testing
+testing docker deployment on tomcat.
