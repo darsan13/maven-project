@@ -27,6 +27,9 @@ pipeline {
         
         stage('Publsih to Docker Hub ') {
             steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_cred', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                }
                 sh "docker tag webapp:v${BUILD_NUMBER} saidevopsworld/webapp:v${BUILD_NUMBER}"
                 sh "docker push saidevopsworld/webapp:v${BUILD_NUMBER}"
             }
