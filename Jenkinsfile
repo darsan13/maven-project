@@ -30,5 +30,6 @@ pipeline {
                 }
                 sh "docker push devopshub2020/mywebapp:v${BUILD_NUMBER}"
             }
+        }
     }
 }
