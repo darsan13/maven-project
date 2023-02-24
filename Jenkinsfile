@@ -19,7 +19,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t mywebapp:v${BUILD_NUMBER} ."
-                sh "docker tag mywebapp:v${BUILD_NUMBER} devopshub2020/mywebapp:v${BUILD_NUMBER}
+                sh "docker tag mywebapp:v${BUILD_NUMBER} devopshub2020/mywebapp:v${BUILD_NUMBER}"
             }
         }
         
