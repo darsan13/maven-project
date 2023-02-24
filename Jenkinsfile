@@ -15,5 +15,20 @@ pipeline {
                 sh "mvn clean package"
             }
         }
+        
+        stage('Build Docker Image') {
+            steps {
+                sh "docker build -t mywebapp:v${BUILD_NUMBER} ."
+                sh "docker tag mywebapp:v${BUILD_NUMBER} devopshub2020/mywebapp:v${BUILD_NUMBER}
+            }
+        }
+        
+        stage('Publish to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsID: 'dockerhub_credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                }
+                sh "docker push devopshub2020/mywebapp:v${BUILD_NUMBER}"
+            }
     }
 }
