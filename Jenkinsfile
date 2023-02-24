@@ -25,8 +25,8 @@ pipeline {
         
         stage('Publish to Docker Hub') {
             steps {
-                withCredentials([usernamePassword(credentialsID: 'dockerhub_credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-                    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                 }
                 sh "docker push devopshub2020/mywebapp:v${BUILD_NUMBER}"
             }
