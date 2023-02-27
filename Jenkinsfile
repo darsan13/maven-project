@@ -28,7 +28,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         	        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                 }
-                sh "docker push devopshub2020/mywebapp:v${BUILD_NUMBER}"
+                sh "docker push avinash9604/mywebapp:v${BUILD_NUMBER}"
             }
         }
     }
