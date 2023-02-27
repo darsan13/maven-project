@@ -19,7 +19,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t mywebapp:v${BUILD_NUMBER} ."
-                sh "docker tag mywebapp:v${BUILD_NUMBER} devopshub2020/mywebapp:v${BUILD_NUMBER}"
             }
         }
         
@@ -28,7 +27,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
         	        sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
                 }
-                sh "docker push avinash9604/mywebapp:v${BUILD_NUMBER}"
+                sh "docker tag mywebapp:v${BUILD_NUMBER} ${env.dockerHubUser}/mywebapp:v${BUILD_NUMBER}"
+                sh "docker push ${env.dockerHubUser}/mywebapp:v${BUILD_NUMBER}"
             }
         }
     }
