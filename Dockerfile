@@ -5,4 +5,4 @@ RUN rm -rf webapps
 RUN mv webapps.dist webapps
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
-COPY $WORKSPACE/webapp/target/webapp-5.0-SNAPSHOT.war /usr/local/tomcat/webapps
+COPY $WORKSPACE/webapp/target/webapp-6.0-SNAPSHOT.war /usr/local/tomcat/webapps
